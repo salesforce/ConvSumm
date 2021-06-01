@@ -1,7 +1,7 @@
 # Controllable Abstractive Dialogue Summarization with Sketch Supervision
 Chien-Sheng Wu*, Linqing Liu*, Wenhao Liu, Pontus Stenetorp, Caiming Xiong
 
-[paper]()
+[[paper]](https://arxiv.org/abs/2105.14064)
 
 ## Citation
 Please cite our work if you use the code or model in this repository
