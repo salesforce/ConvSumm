@@ -102,12 +102,6 @@ def load_dialogue(dialogues_json_path):
         summary = [stemmer.stem(tok) for tok in summary]
         dlg = dialogue['clean_dialog']
 
-        # When formally used in the following steps, uncomment these part
-        # But for BERT classification accuracy, comment these lines
-        # if len(dlg) < 6:
-        #     # If dialog turns is less than 5, label is all true
-        #     label = [1] * len(dlg)
-        # else:
         label = []
         for k in range(len(dlg)):
             # filter name and punctuation
@@ -126,12 +120,6 @@ def load_dialogue(dialogues_json_path):
             label = [1] * len(dlg)
 
         dialogues[i]['label'] = label
-        # No need to have extract dialogs
-        # extract_dialogs = []
-        # for p in range(len(label)):
-        #     if label[p] == 1:
-        #         extract_dialogs.append(dlg[p])
-        # dialogues[i]['extract_dialogs'] = extract_dialogs
 
     # get_function_dialogs
     dialogues = get_function_dialogs(dialogues)

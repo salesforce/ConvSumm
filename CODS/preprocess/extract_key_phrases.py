@@ -103,19 +103,12 @@ def process_dialogue(dialogues_json_path):
                         else:
                             word2phrase[i] = j
 
-                # phrase2word = dict()
-                # phrase2word[0] = [0, len(phrases[0].split()) - 1]
-                # for i in range(1, len(phrases)):
-                #     phrase2word[i] = [phrase2word[i - 1][1] + 1, phrase2word[i - 1][1] + len(phrases[i].split())]
-
                 lcs_len, word_indexes = longest_common_subsequence(tokenized_summary, tokenized_sent)
                 if lcs_len == 0:
                     dialogue['key_phrases'].append([])
                 else:
-                    # labels = [0] * len(tokenized_sent)
                     phrase_set = set()
                     for i in word_indexes:
-                        # labels[i] = 1
                         phrase_set.add(word2phrase[i])
                     phrase_res = []
                     for phrase_id in phrase_set:
@@ -130,7 +123,6 @@ def process_dialogue(dialogues_json_path):
                 else:
                     phrase_res = []
                     for i in word_indexes:
-                        # labels[i] = 1
                         phrase_res.append(tokenized_sent[i])
                     dialogue['key_phrases'].append(phrase_res)
 

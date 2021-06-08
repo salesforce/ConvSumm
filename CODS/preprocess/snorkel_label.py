@@ -110,18 +110,5 @@ def get_snorkel_label(train_dialogs, eval_dialogs, test_dialogs):
     return snorkel_labeled_train_dialogs, snorkel_labeled_eval_dialogs, snorkel_labeled_test_dialogs
 
 
-# def get_snorkel_model(dialogs):
-#     func_dialogs = filter_function_dialog(dialogs)
-#     train_data = pd.DataFrame(func_dialogs, columns=['text'])
-#     lfs = [lf_why_keyword, lf_what_keyword, lf_where_keyword, lf_when_keyword, lf_number_keyword, lf_confirm_keyword]
-#     applier = PandasLFApplier(lfs)
-#     L_train = applier.apply(train_data)
-#
-#     # Train a model
-#     label_model = LabelModel(cardinality=6, verbose=True)
-#     label_model.fit(L_train, n_epochs=500, log_freq=50, seed=123)
-#     train_data['label'] = label_model.predict(L=L_train, tie_break_policy="abstain")
-#     return train_data
-
 
 
