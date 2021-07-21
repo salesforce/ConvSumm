@@ -73,6 +73,7 @@ which gives `All the cinemas are closed this weekend due to pandamic.` and `John
 ❱❱❱ python preprocess_data.py
 ❱❱❱ python -m spacy download en
 ❱❱❱ python extract_key_phrases.py
+❱❱❱ python segment_dialogue.py
 ```
 
 ## Training
