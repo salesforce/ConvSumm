@@ -25,7 +25,7 @@ conv =  [
 "Jason: whats up? Any plan for this weekend?", 
 "John: I'm thinking of go watch a movie, but not decide which yet.", 
 "Debbie: What? I thought that now all the theaters are closed due to the pandamic?", 
-"John: Oh d*mn! That's right. Then no idea what to do."
+"John: Oh! That's right. Then no idea what to do."
 ]
 ```
 
