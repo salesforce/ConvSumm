@@ -89,70 +89,10 @@ def process_dialogue(file_path, d_type):
         d["sum_list"] = list(sum_list)
         data_counter += 1
         
-    #     if sum(seg_label) + 1 != len(sum_list):
-    #         print("clean_dialog", d["clean_dialog"] )
-    #         print("summary", summary)
-    #         print("seg_dial", seg_dial, len(seg_dial))
-    #         print("seg_label", seg_label, sum(seg_label)+1)
-    #         print("sum_list", sum_list, len(sum_list))
-    #         exit(1)
-        
-    #     if not single:
-    #         sources.append("{} {} {}".format(sep_token, " ".join(d["clean_dialog"]), sep_token))
-    #         targets.append(summary.strip())
-    #     else:
-    #         if sum(seg_label) == 0:
-    #             sources.append("{} {} {}".format(sep_token, " ".join(d["clean_dialog"]), sep_token))
-    #             targets.append(summary.strip())
-    #         elif d_type != "test": 
-    #             seg_count, seg_idx = 0, 0
-    #             for si, seg_l in enumerate(seg_label):
-    #                 if seg_l == 1:
-    #                     temp = list(d["clean_dialog"])
-    #                     temp[seg_idx] = "{} {}".format(sep_token, temp[seg_idx])
-    #                     temp[si] = "{} {}".format(temp[si], sep_token)
-    #                     sources.append(" ".join(temp))
-    #                     targets.append(sum_list[seg_count])
-    #                     seg_idx = si + 1
-    #                     seg_count += 1
-    #                 elif si == len(seg_label) - 1:
-    #                     temp = list(d["clean_dialog"])
-    #                     temp[seg_idx] = "{} {}".format(sep_token, temp[seg_idx])
-    #                     temp[si] = "{} {}".format(temp[si], sep_token)
-    #                     sources.append(" ".join(temp))
-    #                     targets.append(sum_list[seg_count])
-    
-    # print("len(sources), len(targets)", len(sources), len(targets))
-    
-    # # generate parallel data
-    # with open(os.path.join(output_dir, "{}.source".format(d_type)), "w") as fout:
-    #     fout.write("\n".join(sources))
-    # with open(os.path.join(output_dir, "{}.target".format(d_type)), "w") as fout:
-    #     fout.write("\n".join(targets))
-    
-    # d_type_ = d_type if d_type != "val" else "eval"
-    # with open(os.path.join(output_dir, "{}.json".format(d_type_)), "w") as fout:
-    #     json.dump(data, fout, indent=4)
-
     with open(file_path, "w") as fout:
         json.dump(data, fout, indent=4)
 
 if __name__ == "__main__":
-    # for SINGLE in [0, 1]:
-    #     if SINGLE:
-    #         output_dir = "../SAMsum/clean_data/nmt-single/"
-    #     else:
-    #         output_dir = "../SAMsum/clean_data/nmt"
-    #     print("output_dir", output_dir)    
-    #     if not os.path.exists(output_dir):
-    #         os.makedirs(output_dir)
-
-    #     st = time.time()
-    #     process_dialogue("../SAMsum/clean_data/test.json", "test", SINGLE)
-    #     process_dialogue("../SAMsum/clean_data/eval.json", "val", SINGLE)
-    #     process_dialogue("../SAMsum/clean_data/train.json", "train", SINGLE)
-    #     print(time.time() - st)
-
     st = time.time()
     process_dialogue("../SAMsum/clean_data/test.json", "test")
     process_dialogue("../SAMsum/clean_data/eval.json", "val")
